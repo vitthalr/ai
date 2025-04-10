@@ -1,51 +1,49 @@
-# Design Playground
+# ✨ Design Playground
 
-![Design Playground Preview](preview.png)
-
-## Overview
+## 🌟 Overview
 
 Design Playground is a modern, interactive showcase of 10 popular UI design styles and trends. From glassmorphism to brutalism, this collection demonstrates various design approaches with responsive layouts and subtle animations.
 
-## Features
+## 🔗 Live Demo
 
-- **Stunning Visual Background**: Animated northern lights effect with dynamic hue rotation and floating bubble elements
-- **10 Unique Design Themes**:
-  - Glassmorphism
-  - Neumorphism
-  - Skeuomorphism
-  - Claymorphism
-  - Aurora Gradient
-  - Vaporwave
-  - Brutalism
-  - Cyberpunk
-  - Minimalism
-  - Frosted UI
-- **Responsive Design**: Optimized for mobile, tablet, and desktop viewing
-- **Interactive Elements**: Hover effects, animations, and smooth transitions
-- **Custom Cursor**: Enhanced user interaction with custom cursor effects
-- **Accessibility Focused**: High contrast text and semantic HTML
+Visit the [Design Playground](https://vitthalr.github.io/ai/) to see it in action.
 
-## Live Demo
+## 🚀 Features
 
-Visit the [Design Playground](https://your-username.github.io/design-playground/) to see it in action.
+- 🎆 **Stunning Visual Background**: Animated northern lights effect with dynamic hue rotation and floating bubble elements
+- 🎨 **10 Unique Design Themes**:
+  - 🔍 Glassmorphism
+  - 🔘 Neumorphism
+  - 📱 Skeuomorphism
+  - 🏮 Claymorphism
+  - 🌈 Aurora Gradient
+  - 🌆 Vaporwave
+  - 🏢 Brutalism
+  - 🤖 Cyberpunk
+  - ⚪ Minimalism
+  - ❄️ Frosted UI
+- 📱 **Responsive Design**: Optimized for mobile, tablet, and desktop viewing
+- 🖱️ **Interactive Elements**: Hover effects, animations, and smooth transitions
+- 👆 **Custom Cursor**: Enhanced user interaction with custom cursor effects
+- ♿ **Accessibility Focused**: High contrast text and semantic HTML
 
-## Getting Started
+## 🏁 Getting Started
 
 ### Prerequisites
 
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Basic understanding of HTML, CSS, and JavaScript for customization
+- 🌐 A modern web browser (Chrome, Firefox, Safari, Edge)
+- 💻 Basic understanding of HTML, CSS, and JavaScript for customization
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/design-playground.git
+   git clone https://github.com/vitthalr/ai.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd design-playground
+   cd ai
    ```
 
 3. Open the `index.html` file in your browser or use a local development server:
@@ -57,7 +55,7 @@ Visit the [Design Playground](https://your-username.github.io/design-playground/
    npx serve
    ```
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 design-playground/
@@ -69,7 +67,7 @@ design-playground/
     └── styles.css          # CSS specific to the design theme
 ```
 
-## Customization
+## ⚙️ Customization
 
 ### Changing Background Effects
 
@@ -88,7 +86,7 @@ To add a new design card, copy one of the existing card structures in `index.htm
 3. Icon (using Font Awesome classes)
 4. Content (title, description, etc.)
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 - HTML5
 - CSS3 with advanced animations
@@ -96,14 +94,14 @@ To add a new design card, copy one of the existing card structures in `index.htm
 - Font Awesome for icons
 - Google Fonts (Inter & Outfit)
 
-## Browser Compatibility
+## 🌐 Browser Compatibility
 
 - Chrome 60+
 - Firefox 60+
 - Safari 12+
 - Edge 80+
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Feel free to submit a Pull Request.
 
@@ -113,11 +111,11 @@ Contributions are welcome! Feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Acknowledgments
+## 👏 Acknowledgments
 
 - Inspiration from various modern UI design trends
 - Font Awesome for the icon set
