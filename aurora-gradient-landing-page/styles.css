@@ -8,7 +8,7 @@
 body {
     min-height: 100vh;
     color: #fff;
-    background-color: #0a0a1a;
+    background-color: #262667;
     overflow-x: hidden;
 }
 
@@ -311,32 +311,216 @@ h1 {
 
 .device-mockup {
     position: relative;
-    border-radius: 15px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
     transform: perspective(1200px) rotateY(-10deg) rotateX(5deg);
     transition: all 0.5s ease;
+    max-width: 650px;
+    margin: 0 auto;
 }
 
 .device-mockup:hover {
     transform: perspective(1200px) rotateY(-5deg) rotateX(3deg) translateY(-10px);
 }
 
-.device-mockup img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 12px;
+/* Dashboard Mockup Styles - Updated with more balanced size (1.3x) */
+.dashboard-mockup {
+    width: 100%;
+    max-width: 650px;
+    height: 390px;
+    background: rgba(30, 30, 60, 0.9);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
-.reflection {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.mockup-header {
+    display: flex;
+    align-items: center;
+    padding: 16px 22px;
+    background: rgba(15, 15, 40, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mockup-dots {
+    display: flex;
+    gap: 7px;
+    margin-right: 20px;
+}
+
+.mockup-dots span {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.mockup-dots span:nth-child(1) {
+    background: #ff5f57;
+}
+
+.mockup-dots span:nth-child(2) {
+    background: #febc2e;
+}
+
+.mockup-dots span:nth-child(3) {
+    background: #28c840;
+}
+
+.mockup-title {
+    flex-grow: 1;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.mockup-actions {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 17px;
+}
+
+.mockup-content {
+    display: flex;
+    flex-grow: 1;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
-    pointer-events: none;
+}
+
+.mockup-sidebar {
+    width: 78px;
+    background: rgba(20, 20, 50, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 26px;
+    gap: 26px;
+}
+
+.sidebar-item {
+    width: 47px;
+    height: 47px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.sidebar-item:hover, .sidebar-item.active {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+.mockup-main {
+    flex-grow: 1;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mockup-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.stat-number {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.stat-text {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.mockup-chart {
+    height: 104px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.chart-bar {
+    width: 10px;
+    background: linear-gradient(to top, #4facfe, #00f2fe);
+    border-radius: 5px;
+}
+
+.mockup-table {
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.table-row {
+    display: flex;
+    padding: 7px 0;
+    font-size: 15px;
+}
+
+.table-row.header {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.table-cell {
+    flex: 1;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+
+.status.green {
+    background: rgba(0, 200, 83, 0.2);
+    color: #00c853;
+}
+
+.status.blue {
+    background: rgba(79, 172, 254, 0.2);
+    color: #4facfe;
 }
 
 /* Features Section */
@@ -493,6 +677,11 @@ footer p {
     .device-mockup:hover {
         transform: translateY(-10px);
     }
+
+    .dashboard-mockup {
+        max-width: 520px;
+        height: 312px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -531,5 +720,38 @@ footer p {
     .footer-content {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .dashboard-mockup {
+        max-width: 100%;
+        height: 300px;
+    }
+    
+    .mockup-sidebar {
+        width: 60px;
+    }
+    
+    .sidebar-item {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .mockup-main {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-mockup {
+        height: 250px;
+    }
+    
+    .mockup-chart {
+        height: 80px;
+    }
+    
+    .stat-icon {
+        width: 36px;
+        height: 36px;
     }
 }
