@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #8B572A;
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+    perspective: 1000px;
+    overflow-x: hidden;
+}
+
+.desk {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Notepad styling */
+.notepad {
+    position: relative;
+    width: 450px;
+    height: 550px;
+    transform: rotate(-2deg);
+    box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.notepad:hover {
+    transform: rotate(0deg) translateY(-10px);
+}
+
+.notepad-spiral {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 2;
+}
+
+.spiral-ring {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #888;
+    box-shadow: inset 2px 2px 5px rgba(255,255,255,0.3), 
+                inset -2px -2px 5px rgba(0,0,0,0.5);
+}
+
+.notepad-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ffffe0;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 100% 30px;
+    padding: 30px 40px 30px 60px;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 
+        inset 0 0 5px rgba(0,0,0,0.1),
+        3px 3px 10px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 380px;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: 'Indie Flower', cursive;
+    font-size: 18px;
+    line-height: 30px;
+    color: #333;
+}
+
+textarea::placeholder {
+    color: rgba(0,0,0,0.3);
+}
+
+/* Stationery items */
+.stationery {
+    position: absolute;
+}
+
+.pencil {
+    position: absolute;
+    width: 200px;
+    height: 15px;
+    top: 50px;
+    right: -150px;
+    transform: rotate(45deg);
+}
+
+.pencil-tip {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    background: #333;
+    clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%);
+}
+
+.pencil-body {
+    position: absolute;
+    width: 160px;
+    height: 15px;
+    left: 20px;
+    background: linear-gradient(to right, #f1c40f 0%, #f39c12 100%);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+
+.pencil-eraser {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    right: 0;
+    background: #e74c3c;
+    border-radius: 0 3px 3px 0;
+}
+
+.coffee-cup {
+    position: absolute;
+    top: 170px;
+    right: -100px;
+}
+
+.cup-body {
+    position: relative;
+    width: 80px;
+    height: 90px;
+    background: linear-gradient(to right, #fff 0%, #f5f5f5 100%);
+    border-radius: 0 0 40px 40px;
+    box-shadow: 
+        inset 0 0 10px rgba(0,0,0,0.1),
+        2px 5px 10px rgba(0,0,0,0.2);
+}
+
+.cup-handle {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    right: -25px;
+    top: 20px;
+    border: 7px solid #f5f5f5;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.coffee {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 60px;
+    height: 15px;
+    background: #6f4e37;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.steam {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    width: 8px;
+    height: 30px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 10px;
+    filter: blur(5px);
+    animation: steam 2s infinite;
+}
+
+@keyframes steam {
+    0% {
+        opacity: 0.8;
+        transform: translateY(0) scaleX(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px) scaleX(3);
+    }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .notepad {
+        width: 90%;
+        height: 500px;
+    }
+    
+    .stationery {
+        display: none;
+    }
+}

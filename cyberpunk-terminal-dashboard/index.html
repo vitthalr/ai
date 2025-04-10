@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Terminal Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="scan-lines"></div>
+    <div class="noise"></div>
+    <div class="screen-glitch"></div>
+    
+    <div class="dashboard">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <div class="hex-container">
+                        <div class="hex"></div>
+                    </div>
+                    <div class="gear-container">
+                        <i class="fas fa-cog gear"></i>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">NEXUS</span>
+                    <span class="logo-sub">TERMINAL v2.77</span>
+                </div>
+            </div>
+            
+            <div class="time-date">
+                <div class="time">21:34:05</div>
+                <div class="date">07.15.2077</div>
+            </div>
+            
+            <div class="status-indicator">
+                <div class="status-item">
+                    <div class="status-label">NET</div>
+                    <div class="status-bar">
+                        <div class="status-progress" style="width: 78%"></div>
+                    </div>
+                    <div class="status-value">78%</div>
+                </div>
+                
+                <div class="status-item">
+                    <div class="status-label">SYS</div>
+                    <div class="status-bar">
+                        <div class="status-progress" style="width: 92%"></div>
+                    </div>
+                    <div class="status-value">92%</div>
+                </div>
+                
+                <div class="status-item">
+                    <div class="status-label">SEC</div>
+                    <div class="status-bar">
+                        <div class="status-progress" style="width: 65%"></div>
+                    </div>
+                    <div class="status-value">65%</div>
+                </div>
+            </div>
+            
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User Avatar">
+                </div>
+                <div class="user-info">
+                    <div class="user-name">V_SILVERHAND</div>
+                    <div class="user-role">NETRUNNER LVL 4</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="main-container">
+            <aside class="sidebar">
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item active">
+                            <a href="#">
+                                <i class="fas fa-home"></i>
+                                <span>DASHBOARD</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <i class="fas fa-terminal"></i>
+                                <span>CONSOLE</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <i class="fas fa-network-wired"></i>
+                                <span>NETWORK</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <i class="fas fa-database"></i>
+                                <span>DATABASE</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <i class="fas fa-radiation"></i>
+                                <span>SYSTEM</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>SECURITY</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <i class="fas fa-cogs"></i>
+                                <span>SETTINGS</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <div class="system-alerts">
+                    <h3>SYSTEM ALERTS</h3>
+                    <ul class="alert-list">
+                        <li class="alert critical">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Firewall breach detected</span>
+                        </li>
+                        <li class="alert warning">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>Memory usage at 87%</span>
+                        </li>
+                        <li class="alert info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>System update available</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            
+            <main class="content">
+                <section class="welcome-panel">
+                    <h1>WELCOME BACK, V</h1>
+                    <div class="welcome-message">
+                        <p>System status: <span class="highlight">OPERATIONAL</span></p>
+                        <p>Last login: 07.15.2077 | 18:42:13 | Terminal ID: 77EC-X9</p>
+                    </div>
+                    <div class="quick-stats">
+                        <div class="stat-box">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">ACTIVE PROCESSES</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">SECURITY THREATS</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">86%</div>
+                            <div class="stat-label">RESOURCE USAGE</div>
+                        </div>
+                    </div>
+                </section>
+                
+                <div class="dashboard-grid">
+                    <section class="console-output">
+                        <div class="panel-header">
+                            <h2>TERMINAL OUTPUT</h2>
+                            <div class="panel-controls">
+                                <button><i class="fas fa-expand-alt"></i></button>
+                                <button><i class="fas fa-sync"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="console-content">
+                            <div class="console-line">C:/> <span class="cmd">initialize system</span></div>
+                            <div class="console-line">Initializing core systems...</div>
+                            <div class="console-line">Loading neural interface... <span class="success">OK</span></div>
+                            <div class="console-line">Connecting to network... <span class="success">OK</span></div>
+                            <div class="console-line">Firewall status... <span class="warning">WARNING</span></div>
+                            <div class="console-line">Scanning for threats...</div>
+                            <div class="console-line">Detected 3 potential security vulnerabilities</div>
+                            <div class="console-line"><span class="danger">ALERT:</span> Unauthorized access attempt blocked from IP: 192.168.1.45</div>
+                            <div class="console-line">Initiating countermeasures...</div>
+                            <div class="console-line">Countermeasures deployed. Threat contained.</div>
+                            <div class="console-line">C:/> <span class="cmd">run security_scan -deep</span></div>
+                            <div class="console-line">Deep scan initiated... ETA: 4 minutes</div>
+                            <div class="console-line cursor-line">C:/> <span class="cursor">_</span></div>
+                        </div>
+                    </section>
+                    
+                    <section class="system-monitor">
+                        <div class="panel-header">
+                            <h2>SYSTEM MONITOR</h2>
+                            <div class="panel-controls">
+                                <button><i class="fas fa-expand-alt"></i></button>
+                                <button><i class="fas fa-sync"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="monitor-grid">
+                            <div class="monitor-item">
+                                <div class="monitor-label">CPU</div>
+                                <div class="circle-progress">
+                                    <svg viewBox="0 0 36 36">
+                                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <path class="circle-fill" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <text x="18" y="20.35" class="percentage">75%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="monitor-item">
+                                <div class="monitor-label">RAM</div>
+                                <div class="circle-progress">
+                                    <svg viewBox="0 0 36 36">
+                                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <path class="circle-fill" stroke-dasharray="87, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <text x="18" y="20.35" class="percentage">87%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="monitor-item">
+                                <div class="monitor-label">DISK</div>
+                                <div class="circle-progress">
+                                    <svg viewBox="0 0 36 36">
+                                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <path class="circle-fill" stroke-dasharray="62, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <text x="18" y="20.35" class="percentage">62%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="monitor-item">
+                                <div class="monitor-label">TEMP</div>
+                                <div class="circle-progress">
+                                    <svg viewBox="0 0 36 36">
+                                        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <path class="circle-fill warning" stroke-dasharray="83, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <text x="18" y="20.35" class="percentage">83%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="network-status">
+                        <div class="panel-header">
+                            <h2>NETWORK TRAFFIC</h2>
+                            <div class="panel-controls">
+                                <button><i class="fas fa-expand-alt"></i></button>
+                                <button><i class="fas fa-sync"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="network-graph">
+                            <div class="graph-container">
+                                <div class="graph-line"></div>
+                                <div class="graph-line"></div>
+                                <div class="graph-line"></div>
+                                <div class="graph-line"></div>
+                                <div class="graph-bars">
+                                    <div class="bar-container">
+                                        <div class="graph-bar" style="height: 60%"></div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="graph-bar" style="height: 45%"></div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="graph-bar" style="height: 75%"></div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="graph-bar" style="height: 30%"></div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="graph-bar" style="height: 85%"></div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="graph-bar" style="height: 55%"></div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="graph-bar active" style="height: 90%"></div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="graph-bar" style="height: 70%"></div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="graph-bar" style="height: 40%"></div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="graph-bar" style="height: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="network-stats">
+                                <div class="network-stat">
+                                    <span class="stat-label">IN:</span>
+                                    <span class="stat-value">124.3 MB/s</span>
+                                </div>
+                                <div class="network-stat">
+                                    <span class="stat-label">OUT:</span>
+                                    <span class="stat-value">67.8 MB/s</span>
+                                </div>
+                                <div class="network-stat">
+                                    <span class="stat-label">LATENCY:</span>
+                                    <span class="stat-value">23ms</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="active-processes">
+                        <div class="panel-header">
+                            <h2>ACTIVE PROCESSES</h2>
+                            <div class="panel-controls">
+                                <button><i class="fas fa-expand-alt"></i></button>
+                                <button><i class="fas fa-sync"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="process-list">
+                            <div class="process-item">
+                                <div class="process-name">netrunner.exe</div>
+                                <div class="process-id">PID: 1337</div>
+                                <div class="process-usage">CPU: 15% | RAM: 256MB</div>
+                                <div class="process-status running">RUNNING</div>
+                            </div>
+                            
+                            <div class="process-item">
+                                <div class="process-name">firewall.sys</div>
+                                <div class="process-id">PID: 4528</div>
+                                <div class="process-usage">CPU: 23% | RAM: 512MB</div>
+                                <div class="process-status running">RUNNING</div>
+                            </div>
+                            
+                            <div class="process-item">
+                                <div class="process-name">decrypt.exe</div>
+                                <div class="process-id">PID: 6142</div>
+                                <div class="process-usage">CPU: 42% | RAM: 1.2GB</div>
+                                <div class="process-status warning">HIGH USAGE</div>
+                            </div>
+                            
+                            <div class="process-item">
+                                <div class="process-name">hack_tool.exe</div>
+                                <div class="process-id">PID: 7865</div>
+                                <div class="process-usage">CPU: 32% | RAM: 890MB</div>
+                                <div class="process-status running">RUNNING</div>
+                            </div>
+                            
+                            <div class="process-item">
+                                <div class="process-name">scanner.app</div>
+                                <div class="process-id">PID: 2201</div>
+                                <div class="process-usage">CPU: 5% | RAM: 125MB</div>
+                                <div class="process-status running">RUNNING</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

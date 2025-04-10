@@ -1,0 +1,1057 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --primary-bg: #0e1129;
+    --card-bg: #ffffff;
+    --text-primary: #f8f9fa;
+    --text-secondary: #ced4da;
+    --accent-color: #4361ee;
+    --hover-color: #3a56d4;
+    --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 15px 35px rgba(0, 0, 0, 0.15);
+    --shadow-dark: 0 20px 40px rgba(0, 0, 0, 0.2);
+    --transition-slow: 0.5s ease;
+    --transition-medium: 0.3s ease;
+    --transition-fast: 0.15s ease;
+    
+    /* Theme colors for cards - updated saturation for better visual hierarchy */
+    --glassmorphism-color: #4285f4;
+    --cyberpunk-color: #00b0ff;
+    --aurora-color: #00c853;
+    --claymorphism-color: #ff3d90;
+    --vaporwave-color: #b388ff;
+    --brutalism-color: #ffab00; 
+    --frosted-color: #00bfa5;
+    --neumorphism-color: #546e7a;
+    --skeuomorphism-color: #ff5252;
+    --minimalism-color: #757575;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 2rem;
+    color: var(--text-primary);
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    background: none !important; /* Force removal of any background */
+}
+
+/* Northern Lights Background Effect */
+.animated-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background: linear-gradient(117deg, #0e0467, #8681be, #4646b5);
+    background-size: 400% 400%;
+    animation: hueCycle 10s linear infinite alternate;
+    overflow: hidden;
+    filter: hue-rotate(0deg);
+}
+
+/* Northern Lights Effect */
+.animated-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at top, rgba(102, 219, 214, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom, rgba(76, 201, 240, 0.1) 0%, transparent 40%);
+    z-index: -1;
+    mix-blend-mode: screen;
+}
+
+/* Add Northern Lights Animation */
+.animated-bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: 
+        linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(76, 201, 240, 0.15) 20%, 
+            rgba(16, 185, 129, 0.15) 40%, 
+            rgba(130, 86, 208, 0.15) 60%, 
+            rgba(76, 201, 240, 0.15) 80%, 
+            transparent 100%);
+    filter: blur(40px);
+    mix-blend-mode: screen;
+    transform: translateY(-50%);
+    animation: northernLights 10s ease infinite alternate;
+    z-index: -1;
+}
+
+/* Add new hue cycling animation */
+@keyframes hueCycle {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(20deg);
+    }
+}
+
+@keyframes northernLights {
+    0% {
+        opacity: 0.5;
+        transform: translateY(10%) skewX(5deg);
+        filter: blur(40px) hue-rotate(0deg);
+    }
+    25% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateY(15%) skewX(-5deg);
+        filter: blur(50px) hue-rotate(90deg);
+    }
+    75% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.5;
+        transform: translateY(10%) skewX(5deg);
+        filter: blur(40px) hue-rotate(180deg);
+    }
+}
+
+.bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Changed from -1 to 0 to ensure visibility */
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.bubbles span {
+    position: absolute;
+    /* Position bubbles higher up initially (at 40% from top instead of bottom) */
+    top: 40%; 
+    background-color: rgba(255, 255, 255, 0.05); /* Added visible background */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(67, 97, 238, 0.6), 
+                inset 0 0 20px rgba(67, 97, 238, 0.6); /* Much stronger glow */
+    border-radius: 50%;
+    animation: floatingFromMiddle 15s linear infinite, huePulse 2s ease-in-out infinite;
+}
+
+.bubbles span:nth-child(even) {
+    background-color: rgba(255, 106, 136, 0.05); /* Added visible background */
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(255, 106, 136, 0.6), 
+                inset 0 0 20px rgba(255, 106, 136, 0.6); /* Much stronger glow */
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+.bubbles span:nth-child(3n) {
+    background-color: rgba(76, 201, 240, 0.05); /* Added visible background */
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(76, 201, 240, 0.6), 
+                inset 0 0 20px rgba(76, 201, 240, 0.6); /* Much stronger glow */
+    /* Add glow that matches northern lights */
+    filter: hue-rotate(calc(var(--i) * 20deg));
+    animation-delay: calc(var(--i) * 0.15s);
+}
+
+/* Add rapid color pulse effect to bubbles */
+@keyframes huePulse {
+    0% {
+        filter: hue-rotate(calc(var(--i) * 10deg));
+    }
+    50% {
+        filter: hue-rotate(calc(var(--i) * 10deg + 30deg));
+    }
+    100% {
+        filter: hue-rotate(calc(var(--i) * 10deg));
+    }
+}
+
+/* Make bubbles MUCH larger and more visible */
+.bubbles span:nth-child(1) {
+    width: 150px;
+    height: 150px;
+    left: 10%;
+    top: 30%;
+    animation-duration: 25s;
+}
+
+.bubbles span:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    left: 30%;
+    top: 35%;
+    animation-delay: 2s;
+    animation-duration: 30s;
+}
+
+.bubbles span:nth-child(3) {
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 25%;
+    animation-delay: 4s;
+    animation-duration: 22s;
+}
+
+.bubbles span:nth-child(4) {
+    width: 180px;
+    height: 180px;
+    left: 70%;
+    top: 40%;
+    animation-delay: 6s;
+    animation-duration: 28s;
+}
+
+.bubbles span:nth-child(5) {
+    width: 120px;
+    height: 120px;
+    left: 5%;
+    top: 45%;
+    animation-delay: 5s;
+    animation-duration: 26s;
+}
+
+/* Continue the pattern for other bubbles, positioning them at different heights */
+.bubbles span:nth-child(6) {
+    width: 160px;
+    height: 160px;
+    left: 25%;
+    top: 28%;
+    animation-delay: 3s;
+    animation-duration: 29s;
+}
+
+.bubbles span:nth-child(7) {
+    width: 110px;
+    height: 110px;
+    left: 45%;
+    top: 38%;
+    animation-delay: 7s;
+    animation-duration: 25s;
+}
+
+.bubbles span:nth-child(8) {
+    width: 135px;
+    height: 135px;
+    left: 65%;
+    top: 32%;
+    animation-delay: 1s;
+    animation-duration: 27s;
+}
+
+/* Updated animation for bubbles starting from middle */
+@keyframes floatingFromMiddle {
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.3;
+    }
+    25% {
+        opacity: 0.8;
+        transform: translateY(-15vh) scale(1.1) rotate(180deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-30vh) scale(1) rotate(360deg);
+    }
+    75% {
+        opacity: 0.8;
+        transform: translateY(-45vh) scale(0.9) rotate(540deg);
+    }
+    95% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-60vh) scale(1) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Add slight transparency to container elements */
+}
+
+/* Add transparency to cards to allow bubbles to show behind */
+.project-card {
+    background: rgba(255, 255, 255, 0.9); /* Added transparency */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Less intense shadow */
+    backdrop-filter: blur(5px);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    position: relative;
+    color: #333;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transform-origin: center bottom;
+}
+
+.project-card-wrapper:hover .project-card {
+    box-shadow: var(--shadow-dark);
+}
+
+/* Make header more transparent with glassmorphism effect */
+.header-content {
+    position: relative;
+    display: inline-block;
+    padding: 2rem;
+    background: rgba(15, 12, 41, 0.3); /* More transparent */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-medium);
+}
+
+.header-content:hover {
+    background: rgba(15, 12, 41, 0.35);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Rest of existing styles... */
+
+/* Custom Cursor */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: width 0.2s, height 0.2s, border-color 0.2s;
+    z-index: 9999;
+}
+
+.cursor-hover {
+    width: 50px;
+    height: 50px;
+    border-color: var(--accent-color);
+    background-color: rgba(67, 97, 238, 0.1);
+    mix-blend-mode: difference;
+}
+
+.cursor-click {
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.icon-badge {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #ff9a8b 0%, #ff6a88 55%, #ff99ac 100%);
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 15px 35px rgba(255, 106, 136, 0.3);
+    transform-origin: center;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -1px;
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(90deg, #f8f9fa, #e9ecef, #f8f9fa);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+.subtitle-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+.highlight {
+    color: #4cc9f0;
+    font-weight: 500;
+    position: relative;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: rgba(76, 201, 240, 0.2);
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+}
+
+.header-decoration {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(67, 97, 238, 0.1);
+    filter: blur(50px);
+    top: -50px;
+    right: -100px;
+    z-index: -1;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Card Wrapper - makes entire card clickable */
+.project-card-wrapper {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    transition: transform var(--transition-medium);
+    will-change: transform;
+    animation: fadeInUp 0.6s ease both;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -0.5s);
+}
+
+.project-card-wrapper:hover {
+    transform: translateY(-15px);
+}
+
+.project-card-wrapper:focus {
+    outline: none;
+}
+
+.project-card-wrapper:focus .project-card {
+    box-shadow: 0 0 0 3px var(--accent-color), var(--shadow-medium);
+}
+
+.project-card-wrapper:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.project-card-wrapper:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.project-card-wrapper:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.project-card-wrapper:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.project-card-wrapper:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.project-card-wrapper:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.project-card-wrapper:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.project-card-wrapper:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.project-card-wrapper:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+.project-card-wrapper:nth-child(10) {
+    animation-delay: 1s;
+}
+
+/* Image Placeholders */
+.card-image {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-placeholder i {
+    font-size: 4rem;
+    opacity: 0.8;
+    transition: all var(--transition-medium);
+}
+
+.project-card-wrapper:hover .image-placeholder {
+    transform: scale(1.1);
+}
+
+.project-card-wrapper:hover .image-placeholder i {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Card theme-specific styles */
+.glassmorphism-card .image-placeholder {
+    background: linear-gradient(135deg, #eff6ff 0%, #bfdbfe 100%);
+    color: var(--glassmorphism-color);
+}
+
+.neumorphism-card .image-placeholder {
+    background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+    color: var(--neumorphism-color);
+}
+
+.skeuomorphism-card .image-placeholder {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    color: var(--skeuomorphism-color);
+}
+
+.claymorphism-card .image-placeholder {
+    background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+    color: var(--claymorphism-color);
+}
+
+.aurora-card .image-placeholder {
+    background: linear-gradient(135deg, #80e27e, #08a573, #4cc2ff);
+    background-size: 300% 300%;
+    animation: auroraGradient 8s ease infinite;
+    color: white;
+}
+
+@keyframes auroraGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.aurora-card .image-placeholder i {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.vaporwave-card .image-placeholder {
+    background: linear-gradient(135deg, #c79fff, #9c27b0);
+    position: relative;
+    overflow: hidden;
+}
+
+.vaporwave-card .image-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    animation: retroScan 4s linear infinite;
+}
+
+@keyframes retroScan {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+.glassmorphism-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+.neumorphism-card {
+    box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+    background: #ecf0f3;
+    border-radius: 20px;
+}
+
+.neumorphism-card .project-link {
+    background: #ecf0f3;
+    color: #546e7a;
+    box-shadow: 5px 5px 10px #d1d9e6, -5px -5px 10px #ffffff;
+}
+
+.neumorphism-card .project-link::before {
+    background: #e0e0e0;
+}
+
+.claymorphism-card {
+    border-radius: 24px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.05), 
+                inset 0 -10px 30px rgba(0, 0, 0, 0.05),
+                15px 15px 20px rgba(0, 0, 0, 0.03);
+    background: white;
+    border: 1px solid rgba(236, 72, 153, 0.2);
+}
+
+.brutalism-card {
+    border: 3px solid black;
+    box-shadow: 8px 8px 0 black;
+    transform: translate(-4px, -4px);
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: white;
+}
+
+.project-card-wrapper:hover .brutalism-card {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 black;
+}
+
+.cyberpunk-card {
+    border: 2px solid var(--cyberpunk-color);
+    box-shadow: 0 0 20px rgba(2, 176, 255, 0.7);
+    background: linear-gradient(145deg, #030f1f, #051a33);
+}
+
+.cyberpunk-card .card-content {
+    color: #e0f7fa;
+}
+
+.cyberpunk-card .project-title {
+    color: #2196f3;
+    text-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+.cyberpunk-card .project-description {
+    color: #b0bec5;
+}
+
+.cyberpunk-card .image-placeholder {
+    background: linear-gradient(135deg, #002f6c, #0069c0);
+    border-bottom: 2px solid var(--cyberpunk-color);
+}
+
+.cyberpunk-card .image-placeholder i {
+    text-shadow: 0 0 15px rgba(2, 176, 255, 0.9);
+    color: #40c4ff;
+}
+
+.vaporwave-card {
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff, #f5f0ff);
+    border: 2px solid var(--vaporwave-color);
+    box-shadow: 6px 6px 0 rgba(168, 85, 247, 0.4);
+}
+
+.frosted-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
+.frosted-card .image-placeholder {
+    background: linear-gradient(135deg, #b2ebf2, #4dd0e1);
+}
+
+.skeuomorphism-card {
+    background: url('https://www.transparenttextures.com/patterns/paper.png'), #fff8f8;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skeuomorphism-card .image-placeholder {
+    background: url('https://www.transparenttextures.com/patterns/lined-paper.png'), #fff5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.minimalism-card {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.minimalism-card .image-placeholder {
+    background: #fafafa;
+}
+
+.minimalism-card .project-link {
+    background: black;
+    border-radius: 4px;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.card-overlay span {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 30px;
+    transform: translateY(20px);
+    transition: transform var(--transition-medium);
+}
+
+.project-card-wrapper:hover .card-overlay {
+    opacity: 1;
+}
+
+.project-card-wrapper:hover .card-overlay span {
+    transform: translateY(0);
+}
+
+.card-content {
+    padding: 1.8rem;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-tag {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.5s ease;
+}
+
+.project-card-wrapper:hover .project-tag::before {
+    left: 100%;
+}
+
+.glassmorphism { background: #eff6ff; color: #3b82f6; }
+.neumorphism { background: #f1f5f9; color: #64748b; }
+.skeuomorphism { background: #fef2f2; color: #ef4444; }
+.claymorphism { background: #fce7f3; color: #ec4899; }
+.aurora { background: #ecfdf5; color: #10b981; }
+.vaporwave { background: #f3e8ff; color: #a855f7; }
+.brutalism { background: #fef9c3; color: #ca8a04; }
+.cyberpunk { background: #e0f2fe; color: #0284c7; }
+.minimalism { background: #f5f5f5; color: #525252; }
+.frosted { background: #f0fdfa; color: #14b8a6; }
+
+.project-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.project-title::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transition: width var(--transition-medium);
+}
+
+.project-card-wrapper:hover .project-title::after {
+    width: 100%;
+}
+
+.project-description {
+    color: #4b5563;
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.5rem;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background var(--transition-medium), transform var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.project-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--accent-color);
+    transition: width var(--transition-medium);
+    z-index: -1;
+}
+
+.project-card-wrapper:hover .project-link {
+    transform: translateY(-3px);
+}
+
+.project-card-wrapper:hover .project-link::before {
+    width: 100%;
+}
+
+.project-link i {
+    margin-left: 0.5rem;
+    transition: transform var(--transition-medium);
+}
+
+.project-card-wrapper:hover .project-link i {
+    transform: translateX(4px);
+}
+
+/* Footer */
+footer {
+    margin-top: 6rem;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    background: rgba(15, 12, 41, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+footer i.fa-heart {
+    color: #f43f5e;
+    margin: 0 0.3rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: color var(--transition-medium), transform var(--transition-medium);
+}
+
+.footer-links a:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Special animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.project-card-wrapper:nth-child(odd) .image-placeholder i {
+    animation: float 5s ease-in-out infinite;
+}
+
+.project-card-wrapper:nth-child(even) .image-placeholder i {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* Add new fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Add scroll-triggered animation */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    .project-card-wrapper {
+        animation-play-state: running;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .icon-badge {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .card-image {
+        height: 180px;
+    }
+    
+    .image-placeholder i {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .cursor {
+        display: none;
+    }
+    
+    .card-image {
+        height: 160px;
+    }
+}

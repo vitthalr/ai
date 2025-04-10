@@ -1,0 +1,402 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    overflow: hidden;
+    position: relative;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Background Elements */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.sun {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to top, #ff6ec4, #ff2079);
+    border-radius: 50%;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 100px #ff2079, 0 0 200px #ff2079;
+}
+
+.grid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background: 
+        linear-gradient(transparent 0%, rgba(136, 0, 136, 0.5) 100%),
+        linear-gradient(90deg, rgba(0, 224, 255, 0.5) 0%, rgba(0, 133, 255, 0.5) 100%);
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+    perspective: 500px;
+    transform-origin: bottom;
+    transform: rotateX(60deg);
+    animation: grid-animation 20s linear infinite;
+}
+
+@keyframes grid-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 40px;
+    }
+}
+
+.mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    background: 
+        linear-gradient(135deg, #7700aa 25%, transparent 25%) -50px 0,
+        linear-gradient(225deg, #7700aa 25%, transparent 25%) -50px 0,
+        linear-gradient(315deg, #7700aa 25%, transparent 25%),
+        linear-gradient(45deg, #7700aa 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: #9900cc;
+    transform-origin: bottom;
+}
+
+/* Player Container */
+.player-container {
+    width: 100%;
+    max-width: 400px;
+    z-index: 10;
+    margin: 20px;
+    perspective: 1000px;
+}
+
+.player {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 
+        0 20px 50px rgba(255, 32, 121, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.player:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 
+        0 30px 70px rgba(255, 32, 121, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+/* Player Header */
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 24px;
+    color: #00f0ff;
+    text-shadow: 
+        0 0 5px #00f0ff,
+        0 0 10px #00f0ff,
+        0 0 20px #00f0ff;
+}
+
+.logo span {
+    color: #ff00aa;
+    text-shadow: 
+        0 0 5px #ff00aa,
+        0 0 10px #ff00aa,
+        0 0 20px #ff00aa;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.control-btn:hover {
+    color: #00f0ff;
+}
+
+.control-btn.large {
+    font-size: 22px;
+}
+
+/* Album Art */
+.album-art {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    margin-bottom: 30px;
+    perspective: 1000px;
+}
+
+.album-art img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    transition: transform 0.5s ease;
+}
+
+.album-art:hover img {
+    transform: translateX(-30px) rotateY(-15deg);
+}
+
+.vinyl-record {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 200px;
+    height: 200px;
+    background: #111;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    animation: spin 10s linear infinite;
+    animation-play-state: running;
+}
+
+.vinyl-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: #444;
+    border-radius: 50%;
+    border: 10px solid #222;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Song Details */
+.song-details {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.song-title {
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #00f0ff;
+    font-family: 'VT323', monospace;
+    letter-spacing: 1px;
+}
+
+.artist {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'VT323', monospace;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff00aa, #00f0ff);
+    border-radius: 5px;
+}
+
+.playback-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.play-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff00aa, #9900cc);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 
+        0 5px 15px rgba(255, 0, 170, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 8px 25px rgba(255, 0, 170, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.extra-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* Playlist */
+.playlist {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.playlist-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.playlist-item.active {
+    background: rgba(0, 240, 255, 0.1);
+}
+
+.playlist-number {
+    width: 40px;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 18px;
+}
+
+.playlist-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-title {
+    font-size: 14px;
+    color: #fff;
+}
+
+.playlist-artist {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.playlist-duration {
+    width: 50px;
+    text-align: right;
+    font-family: 'VT323', monospace;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+.playlist-item.active .playlist-title {
+    color: #00f0ff;
+}
+
+.playlist-item.active .playlist-number,
+.playlist-item.active .playlist-artist,
+.playlist-item.active .playlist-duration {
+    color: rgba(0, 240, 255, 0.7);
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+    .player-container {
+        max-width: 95%;
+    }
+    
+    .album-art {
+        height: 180px;
+    }
+    
+    .album-art img {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .vinyl-record {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .play-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+}

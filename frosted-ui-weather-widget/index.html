@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frosted UI Weather Widget</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <div class="gradient-bg"></div>
+        <div class="clouds">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="weather-widget">
+            <div class="glass-panel">
+                <div class="location-header">
+                    <div class="location">
+                        <div class="location-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="location-info">
+                            <h1>San Francisco</h1>
+                            <p>California, USA</p>
+                        </div>
+                    </div>
+                    <button class="settings-btn">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+                
+                <div class="date-time">
+                    <div class="date">Monday, 18 July</div>
+                    <div class="time">10:43 <span>AM</span></div>
+                </div>
+                
+                <div class="current-weather">
+                    <div class="temperature">
+                        <div class="weather-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="temp-value">24°<span>C</span></div>
+                    </div>
+                    <div class="weather-info">
+                        <div class="weather-status">Sunny</div>
+                        <div class="feels-like">Feels like: 26°</div>
+                    </div>
+                </div>
+                
+                <div class="details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="detail-info">
+                            <div class="detail-label">Wind</div>
+                            <div class="detail-value">12 km/h</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="detail-info">
+                            <div class="detail-label">Humidity</div>
+                            <div class="detail-value">68%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="detail-info">
+                            <div class="detail-label">Visibility</div>
+                            <div class="detail-value">10 km</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                        </div>
+                        <div class="detail-info">
+                            <div class="detail-label">Pressure</div>
+                            <div class="detail-value">1013 hPa</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="forecast">
+                    <h2>5-Day Forecast</h2>
+                    <div class="forecast-list">
+                        <div class="forecast-item">
+                            <div class="forecast-day">Tue</div>
+                            <div class="forecast-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="forecast-temp">26°</div>
+                        </div>
+                        
+                        <div class="forecast-item">
+                            <div class="forecast-day">Wed</div>
+                            <div class="forecast-icon">
+                                <i class="fas fa-cloud-sun"></i>
+                            </div>
+                            <div class="forecast-temp">24°</div>
+                        </div>
+                        
+                        <div class="forecast-item">
+                            <div class="forecast-day">Thu</div>
+                            <div class="forecast-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="forecast-temp">22°</div>
+                        </div>
+                        
+                        <div class="forecast-item">
+                            <div class="forecast-day">Fri</div>
+                            <div class="forecast-icon">
+                                <i class="fas fa-cloud-sun-rain"></i>
+                            </div>
+                            <div class="forecast-temp">21°</div>
+                        </div>
+                        
+                        <div class="forecast-item">
+                            <div class="forecast-day">Sat</div>
+                            <div class="forecast-icon">
+                                <i class="fas fa-cloud-sun"></i>
+                            </div>
+                            <div class="forecast-temp">23°</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-panel hourly-forecast">
+                <h2>Hourly Forecast</h2>
+                <div class="hour-list">
+                    <div class="hour-item">
+                        <div class="hour-time">Now</div>
+                        <div class="hour-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="hour-temp">24°</div>
+                    </div>
+                    
+                    <div class="hour-item">
+                        <div class="hour-time">11 AM</div>
+                        <div class="hour-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="hour-temp">25°</div>
+                    </div>
+                    
+                    <div class="hour-item">
+                        <div class="hour-time">12 PM</div>
+                        <div class="hour-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="hour-temp">26°</div>
+                    </div>
+                    
+                    <div class="hour-item">
+                        <div class="hour-time">1 PM</div>
+                        <div class="hour-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="hour-temp">26°</div>
+                    </div>
+                    
+                    <div class="hour-item">
+                        <div class="hour-time">2 PM</div>
+                        <div class="hour-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="hour-temp">25°</div>
+                    </div>
+                    
+                    <div class="hour-item">
+                        <div class="hour-time">3 PM</div>
+                        <div class="hour-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="hour-temp">24°</div>
+                    </div>
+                    
+                    <div class="hour-item">
+                        <div class="hour-time">4 PM</div>
+                        <div class="hour-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="hour-temp">23°</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

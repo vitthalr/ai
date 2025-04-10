@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaporwave Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Permanent+Marker&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background">
+        <div class="sun"></div>
+        <div class="grid"></div>
+        <div class="mountains"></div>
+    </div>
+    
+    <div class="player-container">
+        <div class="player">
+            <div class="player-header">
+                <div class="logo">RetroWave<span>.fm</span></div>
+                <div class="controls">
+                    <button class="control-btn"><i class="fas fa-bars"></i></button>
+                    <button class="control-btn"><i class="fas fa-ellipsis-v"></i></button>
+                </div>
+            </div>
+            
+            <div class="album-art">
+                <img src="https://images.unsplash.com/photo-1614149162883-504ce4d13909?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmV0cm8lMjBzeW50aHdhdmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="Album Art">
+                <div class="vinyl-record">
+                    <div class="vinyl-inner"></div>
+                </div>
+            </div>
+            
+            <div class="song-details">
+                <h2 class="song-title">Midnight Drive</h2>
+                <p class="artist">SynthWave Collective</p>
+                
+                <div class="progress-container">
+                    <div class="time current-time">1:45</div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="time total-time">4:20</div>
+                </div>
+                
+                <div class="playback-controls">
+                    <button class="control-btn large"><i class="fas fa-backward"></i></button>
+                    <button class="play-btn"><i class="fas fa-play"></i></button>
+                    <button class="control-btn large"><i class="fas fa-forward"></i></button>
+                </div>
+                
+                <div class="extra-controls">
+                    <button class="control-btn"><i class="fas fa-random"></i></button>
+                    <button class="control-btn"><i class="fas fa-volume-up"></i></button>
+                    <button class="control-btn"><i class="fas fa-heart"></i></button>
+                    <button class="control-btn"><i class="fas fa-repeat"></i></button>
+                </div>
+            </div>
+            
+            <div class="playlist">
+                <div class="playlist-item active">
+                    <div class="playlist-number">01</div>
+                    <div class="playlist-info">
+                        <span class="playlist-title">Midnight Drive</span>
+                        <span class="playlist-artist">SynthWave Collective</span>
+                    </div>
+                    <div class="playlist-duration">4:20</div>
+                </div>
+                
+                <div class="playlist-item">
+                    <div class="playlist-number">02</div>
+                    <div class="playlist-info">
+                        <span class="playlist-title">Neon Dreams</span>
+                        <span class="playlist-artist">RetroFuture</span>
+                    </div>
+                    <div class="playlist-duration">3:45</div>
+                </div>
+                
+                <div class="playlist-item">
+                    <div class="playlist-number">03</div>
+                    <div class="playlist-info">
+                        <span class="playlist-title">Digital Sunset</span>
+                        <span class="playlist-artist">CyberHorizon</span>
+                    </div>
+                    <div class="playlist-duration">5:12</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
